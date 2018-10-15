@@ -83,6 +83,7 @@ const (
 	AllocUpdateDesiredTransitionRequestType
 	NodeUpdateEligibilityRequestType
 	BatchNodeUpdateDrainRequestType
+	SchedulerConfigRequestType
 )
 
 const (
@@ -6790,7 +6791,7 @@ const (
 	EvalTriggerMaxPlans          = "max-plan-attempts"
 	EvalTriggerRetryFailedAlloc  = "alloc-failure"
 	EvalTriggerQueuedAllocs      = "queued-allocs"
-	EvalTriggerPreemption        = "preempted"
+	EvalTriggerPreemption        = "preemption"
 )
 
 const (
@@ -7171,20 +7172,22 @@ func (p *Plan) AppendUpdate(alloc *Allocation, desiredStatus, desiredDesc, clien
 	p.NodeUpdate[node] = append(existing, newAlloc)
 }
 
+// AppendPreemptedAlloc is used to append an allocation that's being preempted to the plan.
+// To minimize the size of the plan, this only sets a minimal set of fields in the allocation
 func (p *Plan) AppendPreemptedAlloc(alloc *Allocation, desiredStatus, preemptingAllocID string) {
-	newAlloc := new(Allocation)
-	*newAlloc = *alloc
-	// Normalize the job
-	newAlloc.Job = nil
-
-	// Strip the resources as it can be rebuilt.
-	newAlloc.Resources = nil
-
+	newAlloc := &Allocation{}
+	newAlloc.ID = alloc.ID
+	newAlloc.JobID = alloc.JobID
+	newAlloc.Namespace = alloc.Namespace
 	newAlloc.DesiredStatus = desiredStatus
 	newAlloc.PreemptedByAllocation = preemptingAllocID
 
 	desiredDesc := fmt.Sprintf("Preempted by alloc ID %v", preemptingAllocID)
 	newAlloc.DesiredDescription = desiredDesc
+
+	// TaskResources are needed by the plan applier to check if allocations fit
+	// after removing preempted allocations
+	newAlloc.TaskResources = alloc.TaskResources
 
 	node := alloc.NodeID
 	// Append this alloc to slice for this node
@@ -7222,6 +7225,14 @@ func (p *Plan) IsNoOp() bool {
 		p.Deployment == nil &&
 		len(p.DeploymentUpdates) == 0
 }
+
+// PreemptedAllocs is used to store information about a set of allocations
+// for the same job that get preempted as part of placing allocations for the
+// job in the plan.
+
+// Preempted allocs represents a map from jobid to allocations
+// to be preempted
+type PreemptedAllocs map[*NamespacedID][]*Allocation
 
 // PlanResult is the result of a plan submitted to the leader.
 type PlanResult struct {
