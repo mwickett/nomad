@@ -11,7 +11,7 @@ description: |-
 
 This page lists Nomad's core use cases. Please note that the full range of potential
 use cases is much broader than what is currently covered here. Reading through the
-[Introduction to Nomad](/intro/index.html) is highly recommended before diving into
+[Introduction to Nomad](/docs/intro/index.html) is highly recommended before diving into
 the use cases.
 
 ## Docker Container Management
