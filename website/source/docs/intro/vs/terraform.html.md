@@ -1,7 +1,7 @@
 ---
-layout: "intro"
-page_title: "Nomad vs. Terraform"
-sidebar_current: "vs-other-terraform"
+layout: 'docs'
+page_title: 'Nomad vs. Terraform'
+sidebar_current: 'intro-vs-other-terraform'
 description: |-
   Comparison between Nomad and Terraform
 ---
@@ -31,4 +31,3 @@ For small infrastructures with only a handful of servers or applications, the co
 of Nomad may not outweigh simply using Terraform to statically assign applications to
 machines. At larger scales, Terraform should be used to provision capacity for Nomad,
 and Nomad used to manage scheduling applications to machines dynamically.
-

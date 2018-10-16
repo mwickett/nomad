@@ -1,7 +1,7 @@
 ---
-layout: "intro"
-page_title: "Nomad vs. AWS ECS"
-sidebar_current: "vs-other-ecs"
+layout: 'docs'
+page_title: 'Nomad vs. AWS ECS'
+sidebar_current: 'intro-vs-other-ecs'
 description: |-
   Comparison between Nomad and AWS ECS
 ---
@@ -30,4 +30,3 @@ engine, while Nomad is more general purpose. Nomad supports virtualized,
 containerized, and standalone applications, including Docker. Nomad is
 designed with extensible drivers and support will be extended to all
 common drivers.
-

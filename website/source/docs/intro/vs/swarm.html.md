@@ -1,7 +1,7 @@
 ---
-layout: "intro"
-page_title: "Nomad vs. Docker Swarm"
-sidebar_current: "vs-other-swarm"
+layout: 'docs'
+page_title: 'Nomad vs. Docker Swarm'
+sidebar_current: 'intro-vs-other-swarm'
 description: |-
   Comparison between Nomad and Docker Swarm
 ---
@@ -34,4 +34,3 @@ External systems must be used for coordination to support replication.
 When replication is enabled, Swarm uses an active/standby model,
 meaning the other servers cannot be used to make scheduling decisions.
 Swarm also does not support multiple failure isolation regions or federation.
-

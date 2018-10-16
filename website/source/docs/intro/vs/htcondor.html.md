@@ -1,7 +1,7 @@
 ---
-layout: "intro"
-page_title: "Nomad vs. HTCondor"
-sidebar_current: "vs-other-htcondor"
+layout: 'docs'
+page_title: 'Nomad vs. HTCondor'
+sidebar_current: 'intro-vs-other-htcondor'
 description: |-
   Comparison between Nomad and HTCondor
 ---
@@ -25,4 +25,3 @@ is designed to be a platform for running large scale applications instead
 of just managing a queue of batch work. Nomad supports a broader range
 of workloads, is designed for high availability, supports much
 richer constraint enforcement and bin packing logic.
-

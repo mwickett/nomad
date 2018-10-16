@@ -1,7 +1,7 @@
 ---
-layout: "intro"
-page_title: "Nomad vs. Custom Solutions"
-sidebar_current: "vs-other-custom"
+layout: 'docs'
+page_title: 'Nomad vs. Custom Solutions'
+sidebar_current: 'intro-vs-other-custom'
 description: |-
   Comparison between Nomad and writing a custom solution.
 ---
@@ -26,4 +26,3 @@ flexibility in the workloads it supports, including Docker.
 Nomad provides organizations of any size a solution for deployment
 that is simple, robust, and scalable. It reduces the time and effort spent
 re-inventing the wheel and users can focus instead on their business applications.
-

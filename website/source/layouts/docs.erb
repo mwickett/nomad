@@ -1,6 +1,43 @@
 <% wrap_layout :inner do %>
   <% content_for :sidebar do %>
     <ul class="nav docs-sidenav">
+      <li<%= sidebar_current("intro-what") %>>
+        <a href="/docs/intro/index.html">Intro</a>
+      </li>
+      <li<%= sidebar_current("intro-use-cases") %>>
+        <a href="/docs/intro/use-cases.html">Use Cases</a>
+      </li>
+      <li<%= sidebar_current("intro-vs-other") %>>
+          <a href="/docs/intro/vs/index.html">Nomad vs. Other Software</a>
+          <ul class="nav">
+            <li<%= sidebar_current("intro-vs-other-ecs") %>>
+              <a href="/docs/intro/vs/ecs.html">AWS ECS</a>
+            </li>
+            <li<%= sidebar_current("intro-vs-other-swarm") %>>
+              <a href="/docs/intro/vs/swarm.html">Docker Swarm</a>
+            </li>
+            <li<%= sidebar_current("intro-vs-other-yarn") %>>
+              <a href="/docs/intro/vs/yarn.html">Hadoop YARN</a>
+            </li>
+            <li<%= sidebar_current("intro-vs-other-htcondor") %>>
+              <a href="/docs/intro/vs/htcondor.html">HTCondor</a>
+            </li>
+            <li<%= sidebar_current("intro-vs-other-kubernetes") %>>
+              <a href="/docs/intro/vs/kubernetes.html">Kubernetes</a>
+            </li>
+            <li<%= sidebar_current("intro-vs-other-mesos") %>>
+              <a href="/docs/intro/vs/mesos.html">Mesos with Frameworks</a>
+            </li>
+            <li<%= sidebar_current("intro-vs-other-terraform") %>>
+              <a href="/docs/intro/vs/terraform.html">Terraform</a>
+            </li>
+            <li<%= sidebar_current("intro-vs-other-custom") %>>
+              <a href="/docs/intro/vs/custom.html">Custom Solutions</a>
+            </li>
+          </ul>
+      </li>
+
+      <hr>
 
       <li<%= sidebar_current("docs-internal") %>>
         <a href="/docs/internals/index.html">Internals</a>

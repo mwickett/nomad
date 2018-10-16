@@ -1,7 +1,7 @@
 ---
-layout: "intro"
-page_title: "Nomad vs. Kubernetes"
-sidebar_current: "vs-other-kubernetes"
+layout: 'docs'
+page_title: 'Nomad vs. Kubernetes'
+sidebar_current: 'intro-vs-other-kubernetes'
 description: |-
   Comparison between Nomad and Kubernetes
 ---
@@ -35,6 +35,6 @@ into a single system. By default, Nomad is distributed, highly available,
 and operationally simple.
 
 Kubernetes documentation states they can support clusters greater than 5,000 nodes
-and they support a multi-AZ/multi-region configuration. Nomad has been proven to scale 
-to cluster sizes that exceed 10,000 nodes in real-world production environments. Nomad 
+and they support a multi-AZ/multi-region configuration. Nomad has been proven to scale
+to cluster sizes that exceed 10,000 nodes in real-world production environments. Nomad
 also natively supports multi-datacenter and multi-region configurations.
